@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SocketIO;
+
 
 public class Player : MonoBehaviour {
 
     Rigidbody2D rb;
-    public SocketIOComponent socket;
+
     float xAxis;
     float yAxis;
     bool isWalking;
@@ -15,17 +15,11 @@ public class Player : MonoBehaviour {
     public Vector3 mousePos, mouse;
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(connectToServer());
+        
         rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 
-    IEnumerator connectToServer()
     
-
-    {
-        yield return new WaitForSeconds(.5f);
-        socket.Emit("PlayerConnected");
-    }
 	// Update is called once per frame
 	void Update () {
 
